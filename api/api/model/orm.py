@@ -14,10 +14,41 @@ class User(SQLModel, table=True):
     email: Optional[str] = Field(index=True)
     dynamic_uid: Optional[str] = Field(index=True, description="The UID from Dynamic Labs (JWT derived)")
     wallet_address: Optional[str] = Field(index=True)
+    proposals: Optional[List["Proposal"]] = Relationship(
+        back_populates="user",
+        sa_relationship=RelationshipProperty(
+            "Proposal",
+            primaryjoin="foreign(User.uid) == Proposal.author_id",
+            uselist=True,
+            viewonly=False
+        )
+    )
+    votes: Optional[List["Vote"]] = Relationship(
+        back_populates="user",
+        sa_relationship=RelationshipProperty(
+            "Vote",
+            primaryjoin="foreign(User.uid) == Vote.voter_id",
+            uselist=True,
+            viewonly=False
+        )
+    )
 
 
 class Proposal(SQLModel, table=True):
     pid: str = Field(primary_key=True, default_factory=lambda: f"aid-{uuid.uuid4().hex}")
+    created_at: int = Field(sa_column=Column(BigInteger()), default_factory=lambda: time.time() * 1000)
+    title: str
+    description: str
+    author_id: str
+    author: User = Relationship(
+        back_populates="proposal",
+        sa_relationship=RelationshipProperty(
+            "User",
+            primaryjoin="foreign(Proposal.author_id) == User.uid",
+            uselist=False,
+            viewonly=True
+        )
+    )
     votes: Optional[List["Vote"]] = Relationship(
         back_populates="proposal",
         sa_relationship=RelationshipProperty(
