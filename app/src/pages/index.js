@@ -1,11 +1,15 @@
 import Image from "next/image";
-import {DynamicWidget} from '@dynamic-labs/sdk-react-core';
-import { Inter } from "next/font/google";
+import {DynamicWidget, useDynamicContext} from '@dynamic-labs/sdk-react-core';
+import {Inter} from "next/font/google";
+import {createSafe} from "@/lib/safe";
+import {Button} from "@/components/ui/button";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ["latin"]});
 
 export default function Home() {
-  return (
+	const {primaryWallet} = useDynamicContext();
+
+	return (
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
 			<div className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
 				<div className="flex items-center">
@@ -29,6 +33,11 @@ export default function Home() {
 					Welcome to Foo
 				</div>
 			</div>
+			<Button onClick={() => {
+				createSafe(primaryWallet)
+			}}>
+				Create Safe
+			</Button>
 		</div>
 	);
 }
