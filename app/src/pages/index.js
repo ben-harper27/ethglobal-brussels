@@ -13,7 +13,7 @@ export default function Home() {
 		<Layout>
 			<div className="flex flex-col items-center justify-center gap-4">
 				<div className="text-4xl font-bold text-gray-700 dark:text-gray-300">
-					Welcome to Foo
+					Welcome to Blocksy
 				</div>
 			</div>
 			<Button onClick={() => {
