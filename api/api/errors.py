@@ -1,0 +1,8 @@
+# TODO turn all of these into Exceptions that inherit from HTTPException
+
+METADATA_MISMATCH = "SIRX"
+DATABASE_ERROR = "SDB"
+NO_KYC_APPROVAL = "SLIDERX"
+PCI_COMPLIANCE_ISSUE = "SPCI"
+DB_API_FAILURE = "SLIDCF"
+OBJECT_EXISTS = "SSHEX"
