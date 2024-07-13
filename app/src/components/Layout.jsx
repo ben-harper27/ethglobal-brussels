@@ -14,7 +14,7 @@ export default function Layout({children}) {
 						src="/logo.png"
 					/>
 					<div className="ml-2 text-2xl font-semibold text-gray-800 dark:text-gray-200">
-						Foo
+						Blocksy
 					</div>
 				</div>
 				<div className="flex items-center">
