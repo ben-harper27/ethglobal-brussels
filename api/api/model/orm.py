@@ -39,6 +39,8 @@ class Proposal(SQLModel, table=True):
     created_at: int = Field(sa_column=Column(BigInteger()), default_factory=lambda: time.time() * 1000)
     title: str
     description: str
+    closes_at: int = Field(sa_column=Column(BigInteger()), default_factory=lambda: time.time() * 1000 + 604800000)  # 1 week
+    price: float = Field(default=0)
     author_id: str
     author: User = Relationship(
         back_populates="proposal",

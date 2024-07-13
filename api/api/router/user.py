@@ -8,7 +8,7 @@ from starlette import status
 from ..depenency.auth import handle_dynamic_jwt
 from ..depenency.db import get_db_session, safe_db_read, safe_db_write, DBSession
 from ..model.orm import User
-from ..model.request import CreateUserRequest
+from ..model.request import CreateUserPayload
 
 log = logging.getLogger(__name__)
 router = APIRouter(
@@ -18,7 +18,7 @@ router = APIRouter(
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-async def create_user(payload: CreateUserRequest,
+async def create_user(payload: CreateUserPayload,
                       jwt_data: Optional[dict] = Depends(handle_dynamic_jwt),
                       db: DBSession = Depends(get_db_session)):
     existing_user: User = safe_db_read(db.exec(select(User).where(User.email == payload.email)).one)
