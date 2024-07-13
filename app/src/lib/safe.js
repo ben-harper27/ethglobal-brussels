@@ -1,5 +1,5 @@
 import {SafeAccountConfig, SafeFactory} from '@safe-global/protocol-kit'
-import { createPublicClient, http } from 'viem'
+import {createPublicClient, http, parseUnits} from 'viem'
 import {baseSepolia} from "viem/chains";
 import SafeApiKit from "@safe-global/api-kit";
 import {createWalletClientFromWallet} from "@dynamic-labs/sdk-react-core";
@@ -36,4 +36,14 @@ export const createSafe = async (primaryWallet) => {
   console.log('Your Safe has been deployed:')
   console.log(`https://sepolia.basescan.org/address/${safeAddress}`)
   console.log(`https://app.safe.global/basesep:${safeAddress}`)
+}
+
+export const sendEthToSafe = async (primaryWallet, safeAddress) => {
+  if (!primaryWallet || !safeAddress) return
+  const walletClient = await createWalletClientFromWallet(primaryWallet)
+  const hash = await walletClient.sendTransaction({
+    to: safeAddress,
+    value: parseUnits('0.01', 18)
+  })
+  console.log('Transaction hash:', hash)
 }

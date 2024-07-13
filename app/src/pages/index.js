@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {DynamicWidget, useDynamicContext} from '@dynamic-labs/sdk-react-core';
 import {Inter} from "next/font/google";
-import {createSafe} from "@/lib/safe";
+import {createSafe, sendEthToSafe} from "@/lib/safe";
 import {Button} from "@/components/ui/button";
 
 const inter = Inter({subsets: ["latin"]});
@@ -37,6 +37,11 @@ export default function Home() {
 				createSafe(primaryWallet)
 			}}>
 				Create Safe
+			</Button>
+			<Button onClick={() => {
+				sendEthToSafe(primaryWallet, "0x9754B56ab0BF8D59E9384ce3318Dc33220dA320f")
+			}}>
+				Send Eth to Safe
 			</Button>
 		</div>
 	);
