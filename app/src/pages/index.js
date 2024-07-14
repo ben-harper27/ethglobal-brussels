@@ -2,11 +2,14 @@ import {DynamicEmbeddedWidget, useDynamicContext} from '@dynamic-labs/sdk-react-
 import {Inter} from "next/font/google";
 import Layout from "@/components/Layout";
 import Image from "next/image";
+import {Button} from "@/components/ui/button";
+import {useRouter} from "next/router";
 
 const inter = Inter({subsets: ["latin"]});
 
 export default function Home() {
 	const {primaryWallet} = useDynamicContext();
+	const router = useRouter();
 
 	return (
 		<Layout>
@@ -19,6 +22,13 @@ export default function Home() {
 						className={""}
 						src="/Logo_PNG/Logo_Black_Bottom.png"
 					/>
+					<Button
+						onClick={() => {
+							router.push("/pay");
+						}}
+					>
+						Join Community
+					</Button>
 					{/*<DynamicEmbeddedWidget background="default" />*/}
 				</div>
 				<Image
