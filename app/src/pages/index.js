@@ -26,7 +26,7 @@ export default function Home() {
 					height={800}
 					alt="Logo"
 					className={"pl-52"}
-					src="/Illustrations/home screen image 2.jpg"
+					src="/Illustrations/home_screen_image_2.jpg"
 				/>
 			</div>
 			{/*<Button onClick={() => {*/}

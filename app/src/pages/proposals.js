@@ -5,10 +5,28 @@
  */
 import {Button} from "@/components/ui/button"
 import Layout from "@/components/Layout";
+import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader} from "@/components/ui/dialog";
+import {useState} from "react";
+import CreationForm from "@/components/ProposalForm";
 
-export default function Component() {
+export default function Proposals() {
+	const [showDialog, setShowDialog] = useState(false);
+
+	const onSubmit = () => {
+		console.log("Submitted")
+		setShowDialog(false)
+	}
+
 	return (
 		<Layout>
+			{showDialog && (
+				<Dialog open={showDialog} onOpenChange={setShowDialog}>
+					<DialogContent>
+						<DialogClose className="close-button" onClick={() => setShowDialog(false)}/>
+						<CreationForm onSubmitFunction={onSubmit}/>
+					</DialogContent>
+				</Dialog>
+			)}
 			<div className="flex flex-col items-center p-8 space-y-8">
 				<h1 className="text-2xl font-bold font-['Anonymous Pro'], sans-serif">Dashboard</h1>
 				<div className="flex space-x-8">
@@ -102,7 +120,7 @@ export default function Component() {
 						</div>
 					</div>
 				</div>
-				<Button variant="outline" className="rounded-full w-10 h-10 font-['Anonymous Pro'], sans-serif">
+				<Button variant="outline" className="rounded-full w-10 h-10 font-['Anonymous Pro'], sans-serif" onClick={() => setShowDialog(true)}>
 					+
 				</Button>
 			</div>
