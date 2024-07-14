@@ -14,12 +14,18 @@ export default function Home() {
 
 	return (
 		<Layout>
-			<div className="flex flex-col items-center justify-center gap-4">
+			<div className="flex flex-row items-center justify-center gap-4">
 				<Image
 						width={512}
 						height={512}
 						alt="Logo"
 						src="/Logo_PNG/Logo_Black_Bottom.png"
+					/>
+				<Image
+						width={1000}
+						height={800}
+						alt="Logo"
+						src="/Illustrations/home screen image.jpg"
 					/>
 			</div>
 			{/*<Button onClick={() => {*/}
