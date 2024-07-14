@@ -1,10 +1,6 @@
-import {useDynamicContext} from '@dynamic-labs/sdk-react-core';
+import {DynamicEmbeddedWidget, useDynamicContext} from '@dynamic-labs/sdk-react-core';
 import {Inter} from "next/font/google";
-import {createSafe, sendEthToSafe} from "@/lib/safe";
-import {Button} from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import {parseUnits} from "viem";
-import {createProposal, voteForProposal} from "@/lib/proposal";
 import Image from "next/image";
 
 const inter = Inter({subsets: ["latin"]});
@@ -14,19 +10,24 @@ export default function Home() {
 
 	return (
 		<Layout>
-			<div className="flex flex-row items-center justify-center gap-4">
-				<Image
-						width={512}
-						height={512}
+			<div className="flex flex-row">
+				<div className="flex flex-col items-center justify-center h-fit gap-12 pt-24">
+					<Image
+						width={64}
+						height={64}
 						alt="Logo"
+						className={""}
 						src="/Logo_PNG/Logo_Black_Bottom.png"
 					/>
+					{/*<DynamicEmbeddedWidget background="default" />*/}
+				</div>
 				<Image
-						width={1000}
-						height={800}
-						alt="Logo"
-						src="/Illustrations/home screen image.jpg"
-					/>
+					width={1000}
+					height={800}
+					alt="Logo"
+					className={"pl-52"}
+					src="/Illustrations/home screen image 2.jpg"
+				/>
 			</div>
 			{/*<Button onClick={() => {*/}
 			{/*	createSafe(primaryWallet)*/}

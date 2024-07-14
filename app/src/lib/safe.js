@@ -45,5 +45,6 @@ export const sendEthToSafe = async (primaryWallet, safeAddress) => {
     to: safeAddress,
     value: parseUnits('0.01', 18)
   })
-  console.log('Transaction hash:', hash)
+  console.log('Transaction hash:', hash);
+  return hash;
 }

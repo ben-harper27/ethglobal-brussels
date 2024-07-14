@@ -1,134 +1,110 @@
 /**
  * v0 by Vercel.
- * @see https://v0.dev/t/K3s4VifbLgr
+ * @see https://v0.dev/t/KVT51XwHC0H
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
-import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
 import {Button} from "@/components/ui/button"
 import Layout from "@/components/Layout";
 
 export default function Component() {
 	return (
 		<Layout>
-			<div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
-				<div className="mb-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-					<div className="space-y-2">
-						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">HOA Proposals</h1>
-						<p className="text-muted-foreground">Review and vote on proposals from your community.</p>
+			<div className="flex flex-col items-center p-8 space-y-8">
+				<h1 className="text-2xl font-bold font-['Anonymous Pro'], sans-serif">Dashboard</h1>
+				<div className="flex space-x-8">
+					<div className="w-[300px] p-4 border rounded-lg">
+						<div className="flex items-center mb-4">
+							<img src="/Illustrations/Table.png" alt="Idlewood" className="w-12 h-12 mr-4"/>
+							<h2 className="text-xl font-semibold font-['Anonymous Pro'], sans-serif">Idlewood</h2>
+						</div>
+						<div className="space-y-4">
+							<div>
+								<h3 className="font-semibold font-['Anonymous Pro'], sans-serif">HOA</h3>
+								<p className="font-['Anonymous Pro'], sans-serif">Members: 19</p>
+							</div>
+							<div>
+								<h3 className="font-semibold font-['Anonymous Pro'], sans-serif">Proposals</h3>
+								<p className="font-['Anonymous Pro'], sans-serif">Total 2024: 13</p>
+								<p className="font-['Anonymous Pro'], sans-serif">Open proposals: 4</p>
+								<p className="font-['Anonymous Pro'], sans-serif">Rejected: 2</p>
+								<p className="font-['Anonymous Pro'], sans-serif">Passed: 7</p>
+							</div>
+							<div>
+								<h3 className="font-semibold font-['Anonymous Pro'], sans-serif">Funds</h3>
+								<p className="font-['Anonymous Pro'], sans-serif">Reserve: $1,420,000</p>
+								<p className="font-['Anonymous Pro'], sans-serif">Spent 2024: $385,000</p>
+							</div>
+						</div>
 					</div>
-					<div className="flex items-center gap-4">
-						<Select>
-							<SelectTrigger className="w-48">
-								<SelectValue placeholder="Filter by category"/>
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="landscaping">Landscaping</SelectItem>
-								<SelectItem value="security">Security</SelectItem>
-								<SelectItem value="amenities">Amenities</SelectItem>
-								<SelectItem value="rules">Rules</SelectItem>
-							</SelectContent>
-						</Select>
-						<Select>
-							<SelectTrigger className="w-48">
-								<SelectValue placeholder="Filter by status"/>
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="open">Open</SelectItem>
-								<SelectItem value="pending">Pending</SelectItem>
-								<SelectItem value="approved">Approved</SelectItem>
-								<SelectItem value="rejected">Rejected</SelectItem>
-							</SelectContent>
-						</Select>
+					<div className="flex flex-col space-y-8">
+						<h1 className="text-2xl font-bold font-['Anonymous Pro'], sans-serif">Proposals</h1>
+						<div className="grid grid-cols-2 gap-8">
+							<div className="w-[200px] p-4 border rounded-lg">
+								<div className="flex items-center mb-4">
+									<img src="/Illustrations/Roads.png" alt="Streets" className="w-12 h-12 mr-4"/>
+									<h2 className="text-xl font-semibold font-['Anonymous Pro'], sans-serif">Streets</h2>
+								</div>
+								<div className="space-y-2">
+									<p className="font-['Anonymous Pro'], sans-serif">June 2024</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Pothole Swansea Rd</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Quote: $23,000</p>
+								</div>
+								<div className="flex justify-between mt-4">
+									<Button variant="outline">Yes</Button>
+									<Button variant="outline">No</Button>
+								</div>
+							</div>
+							<div className="w-[200px] p-4 border rounded-lg">
+								<div className="flex items-center mb-4">
+									<img src="/Illustrations/Houses.png" alt="Properties" className="w-12 h-12 mr-4"/>
+									<h2 className="text-xl font-semibold font-['Anonymous Pro'], sans-serif">Properties</h2>
+								</div>
+								<div className="space-y-2">
+									<p className="font-['Anonymous Pro'], sans-serif">May 2024</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Trimming hedges</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Quote: $7,500</p>
+								</div>
+								<div className="flex justify-between mt-4">
+									<Button variant="outline">Yes</Button>
+									<Button variant="outline">No</Button>
+								</div>
+							</div>
+							<div className="w-[200px] p-4 border rounded-lg">
+								<div className="flex items-center mb-4">
+									<img src="/Illustrations/Playground.png" alt="Playground" className="w-12 h-12 mr-4"/>
+									<h2 className="text-xl font-semibold font-['Anonymous Pro'], sans-serif">Playground</h2>
+								</div>
+								<div className="space-y-2">
+									<p className="font-['Anonymous Pro'], sans-serif">June 2024</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Painting benches</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Quote: $4,750</p>
+								</div>
+								<div className="flex justify-between mt-4">
+									<Button variant="outline">Yes</Button>
+									<Button variant="outline">No</Button>
+								</div>
+							</div>
+							<div className="w-[200px] p-4 border rounded-lg">
+								<div className="flex items-center mb-4">
+									<img src="/Illustrations/Pool.png" alt="Pool" className="w-12 h-12 mr-4"/>
+									<h2 className="text-xl font-semibold font-['Anonymous Pro'], sans-serif">Pool</h2>
+								</div>
+								<div className="space-y-2">
+									<p className="font-['Anonymous Pro'], sans-serif">July 2024</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Pump replacement</p>
+									<p className="font-['Anonymous Pro'], sans-serif">Quote: $12,000</p>
+								</div>
+								<div className="flex justify-between mt-4">
+									<Button variant="outline">Yes</Button>
+									<Button variant="outline">No</Button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					<Card>
-						<CardHeader>
-							<CardTitle>Upgrade Playground Equipment</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to replace the aging playground equipment with new, modern, and safer options.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Amenities</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-					<Card>
-						<CardHeader>
-							<CardTitle>Install Security Cameras</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to install security cameras at the community entrances and common areas to improve safety.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Security</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-					<Card>
-						<CardHeader>
-							<CardTitle>Repaint Community Fences</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to repaint the community fences to improve the overall aesthetic of the neighborhood.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Landscaping</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-					<Card>
-						<CardHeader>
-							<CardTitle>Update Community Rules</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to update the community rules to address new issues and concerns raised by residents.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Rules</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-					<Card>
-						<CardHeader>
-							<CardTitle>Renovate Clubhouse</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to renovate the community clubhouse, including upgrading the facilities and adding new
-								amenities.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Amenities</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-					<Card>
-						<CardHeader>
-							<CardTitle>Improve Landscaping</CardTitle>
-						</CardHeader>
-						<CardContent>
-							<p className="text-muted-foreground">
-								Proposal to enhance the community&apos;s landscaping, including planting new trees, shrubs, and flowers.
-							</p>
-						</CardContent>
-						<CardFooter className="flex justify-between">
-							<div className="text-sm text-muted-foreground">Category: Landscaping</div>
-							<Button>Vote</Button>
-						</CardFooter>
-					</Card>
-				</div>
+				<Button variant="outline" className="rounded-full w-10 h-10 font-['Anonymous Pro'], sans-serif">
+					+
+				</Button>
 			</div>
 		</Layout>
 	)
