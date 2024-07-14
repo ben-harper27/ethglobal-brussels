@@ -40,6 +40,7 @@ class Proposal(SQLModel, table=True):
     title: str
     description: str
     closes_at: int = Field(sa_column=Column(BigInteger()), default_factory=lambda: time.time() * 1000 + 604800000)  # 1 week
+    onchain_id: str
     price: float = Field(default=0)
     author_id: str
     author: User = Relationship(
