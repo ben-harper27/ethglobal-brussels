@@ -4,11 +4,6 @@ const nextConfig = {
   env: {
     API_BASE: process.env.API_BASE,
   },
-  images: {
-		domains: [
-			"storage.googleapis.com",
-		],
-	},
 };
 
 export default nextConfig;
