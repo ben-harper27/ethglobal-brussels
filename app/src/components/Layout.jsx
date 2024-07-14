@@ -10,12 +10,8 @@ export default function Layout({children}) {
 						width={128}
 						height={128}
 						alt="Logo"
-						className="w-10 h-10 rounded-xl"
-						src="/logo.png"
+						src="/Logo_PNG/Logo_Black_Horizontal.png"
 					/>
-					<div className="ml-2 text-2xl font-semibold text-gray-800 dark:text-gray-200">
-						Blocksy
-					</div>
 				</div>
 				<div className="flex items-center">
 					<DynamicWidget/>

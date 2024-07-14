@@ -5,6 +5,7 @@ import {Button} from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import {parseUnits} from "viem";
 import {createProposal, voteForProposal} from "@/lib/proposal";
+import Image from "next/image";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -14,30 +15,33 @@ export default function Home() {
 	return (
 		<Layout>
 			<div className="flex flex-col items-center justify-center gap-4">
-				<div className="text-4xl font-bold text-gray-700 dark:text-gray-300">
-					Welcome to Blocksy
-				</div>
+				<Image
+						width={512}
+						height={512}
+						alt="Logo"
+						src="/Logo_PNG/Logo_Black_Bottom.png"
+					/>
 			</div>
 			{/*<Button onClick={() => {*/}
 			{/*	createSafe(primaryWallet)*/}
 			{/*}}>*/}
 			{/*	Create Safe*/}
 			{/*</Button>*/}
-			<Button onClick={() => {
-				sendEthToSafe(primaryWallet, "0x9754B56ab0BF8D59E9384ce3318Dc33220dA320f")
-			}}>
-				Send Eth to Safe
-			</Button>
-			<Button onClick={() => {
-				createProposal(primaryWallet, "0x342E8bf072327708009FAa2E9045D9B1F6deC2b8", parseUnits('0.01', 18), "0x", 0);
-			}}>
-				Create Proposal
-			</Button>
-			<Button onClick={() => {
-				voteForProposal(primaryWallet, "1");
-			}}>
-				Vote for Proposal
-			</Button>
+			{/*<Button onClick={() => {*/}
+			{/*	sendEthToSafe(primaryWallet, "0x9754B56ab0BF8D59E9384ce3318Dc33220dA320f")*/}
+			{/*}}>*/}
+			{/*	Send Eth to Safe*/}
+			{/*</Button>*/}
+			{/*<Button onClick={() => {*/}
+			{/*	createProposal(primaryWallet, "0x342E8bf072327708009FAa2E9045D9B1F6deC2b8", parseUnits('0.01', 18), "0x", 0);*/}
+			{/*}}>*/}
+			{/*	Create Proposal*/}
+			{/*</Button>*/}
+			{/*<Button onClick={() => {*/}
+			{/*	voteForProposal(primaryWallet, "1");*/}
+			{/*}}>*/}
+			{/*	Vote for Proposal*/}
+			{/*</Button>*/}
 		</Layout>
 	);
 }
