@@ -120,7 +120,7 @@ export default function Component() {
 						</CardHeader>
 						<CardContent>
 							<p className="text-muted-foreground">
-								Proposal to enhance the community's landscaping, including planting new trees, shrubs, and flowers.
+								Proposal to enhance the community&apos;s landscaping, including planting new trees, shrubs, and flowers.
 							</p>
 						</CardContent>
 						<CardFooter className="flex justify-between">
