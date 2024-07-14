@@ -8,8 +8,12 @@ import Layout from "@/components/Layout";
 import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader} from "@/components/ui/dialog";
 import {useState} from "react";
 import CreationForm from "@/components/ProposalForm";
+import {createProposal, voteForProposal} from "@/lib/proposal";
+import {parseUnits} from "viem";
+import {useDynamicContext} from "@dynamic-labs/sdk-react-core";
 
 export default function Proposals() {
+	const {primaryWallet} = useDynamicContext();
 	const [showDialog, setShowDialog] = useState(false);
 
 	const onSubmit = () => {
@@ -122,6 +126,16 @@ export default function Proposals() {
 				</div>
 				<Button variant="outline" className="rounded-full w-10 h-10 font-['Anonymous Pro'], sans-serif" onClick={() => setShowDialog(true)}>
 					+
+				</Button>
+				<Button onClick={() => {
+					createProposal(primaryWallet, "0x342E8bf072327708009FAa2E9045D9B1F6deC2b8", parseUnits('0.01', 18), "0x", 0);
+				}}>
+					Create Proposal
+				</Button>
+				<Button onClick={() => {
+					voteForProposal(primaryWallet, "2");
+				}}>
+					Vote for Proposal
 				</Button>
 			</div>
 		</Layout>
