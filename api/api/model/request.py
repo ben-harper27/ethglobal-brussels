@@ -11,7 +11,7 @@ class CreateUserPayload(BaseModel):
 class CreateProposalPayload(BaseModel):
     title: str
     description: str
-    closes_at: int
+    closes_at: Optional[int]
     price: float
 
 
